@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apresentação de Modelos | Ivana Silva</title>
+    <title>Ivana Silva | Salão & Perfumaria</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,62 +11,119 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
     <style>
+            /* Corrige delays de animação sem inline style */
+            .delay-015 { animation-delay: 0.15s; }
+            .delay-025 { animation-delay: 0.25s; }
+            .delay-035 { animation-delay: 0.35s; }
+            .delay-045 { animation-delay: 0.45s; }
+            .delay-055 { animation-delay: 0.55s; }
         body {
             font-family: 'Montserrat', sans-serif;
             background-color: #0b0b0b;
-        }
-        .font-title {
-            font-family: 'Playfair Display', serif;
+            overflow-x: hidden;
         }
         .color-gold {
             color: #dca381;
         }
+        .bg-gold {
+            background-color: #dca381;
+        }
+
+        /* Animações de Entrada Premium */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(24px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes shimmer {
+            0% { transform: translateX(-150%) skewX(-25deg); }
+            100% { transform: translateX(150%) skewX(-25deg); }
+        }
+
+        .animate-down {
+            animation: fadeInDown 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+        }
+        .animate-up {
+            animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+        }
+
+        /* Efeito Shimmer */
+        .shimmer-effect {
+            position: relative;
+            overflow: hidden;
+        }
+        .shimmer-effect::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transform: translateX(-150%) skewX(-25deg);
+            animation: shimmer 4.5s infinite ease-in-out;
+            animation-delay: 1.5s;
+        }
     </style>
 </head>
-<body class="text-gray-200 flex flex-col min-h-screen justify-between antialiased p-6">
+<body class="text-gray-200 flex flex-col min-h-screen justify-between antialiased selection:bg-[#dca381] selection:text-black p-4">
 
-    <main class="w-full max-w-md mx-auto pt-8 pb-6 flex flex-col items-center flex-grow justify-center text-center">
+    <div id="shareBtn" class="animate-down fixed top-5 right-5 w-11 h-11 bg-zinc-900/90 border border-zinc-800/80 rounded-full flex items-center justify-center text-[#dca381] text-base cursor-pointer shadow-lg transition-all duration-300 hover:border-[#dca381] active:scale-95 z-50" title="Compartilhar Perfil">
+        <i class="fa-solid fa-share-nodes"></i>
+    </div>
+
+    <main class="w-full max-w-md mx-auto px-2 pt-6 pb-6 flex flex-col items-center flex-grow justify-center">
         
-        <div class="w-full max-w-[160px] mb-6">
-            <img src="/img/logo1.png" alt="Ivana Silva" class="w-full h-auto object-contain filter drop-shadow(0 4px 10px rgba(220, 163, 129, 0.08))">
-        </div>
-
-        <div class="space-y-3 mb-8">
-            <h1 class="font-title text-2xl font-semibold tracking-wide color-gold">Olá, Ivana Silva!</h1>
+        <header class="animate-down w-full flex flex-col items-center mb-8 text-center">
+            <div class="w-full max-w-[180px] h-auto flex items-center justify-center py-4">
+                <img src="/img/logo1.png" alt="Ivana Silva Salão & Perfumaria" class="w-full h-auto object-contain filter drop-shadow(0 4px 12px rgba(220, 163, 129, 0.08))">
+            </div>
             
-            <p class="text-sm text-zinc-300 font-light leading-relaxed px-2">
-                Estes foram os modelos de sites criados exclusivamente para o seu negócio de <strong>Salão & Perfumaria</strong>. 
-            </p>
+            <div class="w-12 h-[1px] bg-zinc-800 my-2"></div>
             
-            <p class="text-xs text-zinc-400 font-light leading-relaxed px-4">
-                Lembrando que estes são modelos de exemplo pensados na identidade da sua marca. Tudo — desde as cores, fotos, textos até os botões — pode ser totalmente alterado e personalizado caso você solicite!
+            <p class="text-xs text-zinc-400 max-w-xs font-light leading-relaxed mt-2">
+                Realçando sua beleza natural com sofisticação e cuidados premium.
             </p>
-        </div>
+        </header>
 
-        <div class="w-full h-[1px] bg-zinc-800/80 mb-8"></div>
+        <div class="w-full space-y-4 mb-10">
 
-        <div class="w-full space-y-4">
+            <a href="https://wa.me/559882167881" 
+               target="_blank" rel="noopener noreferrer"
+               class="animate-up delay-015 shimmer-effect w-full bg-gold text-neutral-950 font-bold py-5 px-6 rounded-xl flex items-center justify-between transition-all duration-300 transform active:scale-95 hover:opacity-95 shadow-xl">
+                <span class="flex items-center gap-3 text-sm tracking-wider uppercase">
+                    <i class="fa-brands fa-whatsapp text-xl"></i>
+                    Agendamento / Dúvidas
+                </span>
+                <i class="fa-solid fa-chevron-right text-xs opacity-80"></i>
+            </a>
 
-            <a href="/index1.html" class="w-full bg-zinc-900 border border-zinc-800 text-zinc-200 py-4 px-5 rounded-xl flex items-center justify-between transition-all duration-300 active:scale-98 hover:border-[#dca381]/50 group shadow-md">
+            <a href="https://maps.app.goo.gl/TZysTfkHNkqj4cZh7" 
+               target="_blank" rel="noopener noreferrer"
+               class="animate-up delay-025 w-full bg-zinc-900/80 border border-zinc-800/80 text-zinc-200 py-5 px-6 rounded-xl flex items-center justify-between transition-all duration-300 active:scale-98 hover:bg-zinc-800/50 hover:border-[#dca381]/40 group">
                 <span class="flex items-center gap-3 text-sm font-medium tracking-wide">
-                    <i class="fa-solid fa-swatchbook color-gold text-base"></i>
-                    Visualizar Modelo 01
+                    <i class="fa-solid fa-location-dot color-gold text-lg"></i>
+                    Endereço & Localização
                 </span>
                 <i class="fa-solid fa-chevron-right text-xs text-zinc-500 group-hover:translate-x-1 transition-transform"></i>
             </a>
 
-            <a href="/index.2.html" class="w-full bg-zinc-900 border border-zinc-800 text-zinc-200 py-4 px-5 rounded-xl flex items-center justify-between transition-all duration-300 active:scale-98 hover:border-[#dca381]/50 group shadow-md">
+            <a href="https://wa.me/559882167881?text=Olá,%20Ivana!%20Gostaria%20de%20receber%20o%20catálogo%20de%20perfumes%20disponíveis." 
+               target="_blank" rel="noopener noreferrer"
+               class="animate-up delay-035 w-full bg-zinc-900/80 border border-zinc-800/80 text-zinc-200 py-5 px-6 rounded-xl flex items-center justify-between transition-all duration-300 active:scale-98 hover:bg-zinc-800/50 hover:border-[#dca381]/40 group">
                 <span class="flex items-center gap-3 text-sm font-medium tracking-wide">
-                    <i class="fa-solid fa-wand-magic-sparkles color-gold text-base"></i>
-                    Visualizar Modelo 02
+                    <i class="fa-solid fa-bottle-droplet color-gold text-lg"></i>
+                    Solicitar Catálogo de Perfumes
                 </span>
                 <i class="fa-solid fa-chevron-right text-xs text-zinc-500 group-hover:translate-x-1 transition-transform"></i>
             </a>
 
-            <a href="/index.3.html" class="w-full bg-zinc-900 border border-zinc-800 text-zinc-200 py-4 px-5 rounded-xl flex items-center justify-between transition-all duration-300 active:scale-98 hover:border-[#dca381]/50 group shadow-md">
+            <a href="https://instagram.com/ivanna_silvva/" 
+               target="_blank" rel="noopener noreferrer"
+               class="animate-up delay-045 w-full bg-zinc-900/80 border border-zinc-800/80 text-zinc-200 py-5 px-6 rounded-xl flex items-center justify-between transition-all duration-300 active:scale-98 hover:bg-zinc-800/50 hover:border-[#dca381]/40 group">
                 <span class="flex items-center gap-3 text-sm font-medium tracking-wide">
-                    <i class="fa-solid fa-gem color-gold text-base"></i>
-                    Visualizar Modelo 03
+                    <i class="fa-brands fa-instagram color-gold text-lg"></i>
+                    Ver Fotos dos Trabalhos
                 </span>
                 <i class="fa-solid fa-chevron-right text-xs text-zinc-500 group-hover:translate-x-1 transition-transform"></i>
             </a>
@@ -74,11 +131,45 @@
         </div>
     </main>
 
-    <footer class="w-full max-w-md mx-auto text-center pt-6 border-t border-zinc-900">
-        <p class="text-[10px] text-zinc-600 tracking-widest uppercase">
-            Apresentado com dedicação por <a href="https://menubairro.com.br" target="_blank" rel="noopener noreferrer" class="color-gold font-medium hover:underline">Menubairro</a>
+    <footer class="animate-up delay-055 w-full max-w-md mx-auto px-6 pb-6 text-center flex flex-col items-center gap-3">
+        <div class="flex items-center gap-6 text-xl text-zinc-500 mb-1">
+            <a href="https://instagram.com/ivanna_silvva/" target="_blank" rel="noopener noreferrer" class="hover:text-[#dca381] transition-colors" title="Instagram Ivana Silva">
+                <i class="fa-brands fa-instagram"></i>
+                <span class="sr-only">Instagram Ivana Silva</span>
+            </a>
+        </div>
+        <p class="text-[9px] text-zinc-600 tracking-widest uppercase leading-relaxed">
+            © 2026 Ivana Silva · Desenvolvido por <a href="https://wa.me/5598984021537?text=Oi%2C%20vi%20pelo%20site%20da%20Ivana%20Silva%20Sal%C3%A3o%20e%20Perfumaria%20e%20gostaria%20de%20saber%20como%20adquirir%20uma%20p%C3%A1gina%20assim%20para%20meu%20neg%C3%B3cio" target="_blank" rel="noopener noreferrer" class="color-gold hover:underline">Menubairro</a>
         </p>
     </footer>
+
+    <script>
+        document.getElementById('shareBtn').addEventListener('click', async () => {
+            const btn = document.getElementById('shareBtn');
+            if (navigator.share) {
+                try {
+                    await navigator.share({
+                        title: 'Ivana Silva | Salão & Perfumaria',
+                        text: 'Confira os serviços, perfumaria e agende seu horário na Ivana Silva!',
+                        url: window.location.href
+                    });
+                } catch (err) {
+                    console.log('Compartilhamento cancelado');
+                }
+            } else {
+                try {
+                    await navigator.clipboard.writeText(window.location.href);
+                    const originalContent = btn.innerHTML;
+                    btn.innerHTML = '<i class="fa-solid fa-check" style="color: #22c55e;"></i>';
+                    setTimeout(() => {
+                        btn.innerHTML = originalContent;
+                    }, 2000);
+                } catch (err) {
+                    console.error('Erro ao copiar link:', err);
+                }
+            }
+        });
+    </script>
 
 </body>
 </html>
